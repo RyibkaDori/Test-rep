@@ -1,16 +1,63 @@
-# This is a sample Python script.
+C=[ 'A', 'H', 'I', 'M', 'O', 'T', 'U', 'V', 'W', 'X', 'Y', '1', '8']
+D = ['E', 'J', 'S', 'Z', '3', 'L', '2', '5']
+A = input()
+pl = 0
+B=A[::-1]
+symbols = []
+symb = []
+for symbol in A:
+    symbols += symbol
+for symbol in B:
+    symb += symbol
+z = True
+for i in range(len(symbols)):
+    if (symbols[i] not in C) and (symbols[i] not in D):
+        z = False
+    elif symbols[i] in C:
+        symbols[i] = symbols[i]
+    elif symbols[i] == 'E':
+        symbols[i] = '3'
+    elif symbols[i] == 'J':
+        symbols[i] = 'L'
+    elif symbols[i] == 'S':
+        symbols[i] = '2'
+    elif symbols[i] == 'Z':
+        symbols[i] = '5'
+    elif symbols[i] == '3':
+        symbols[i] = 'E'
+    elif symbols[i] == 'L':
+        symbols[i] = 'J'
+    elif symbols[i] == '2':
+        symbols[i] = 'S'
+    elif symbols[i] == '5':
+        symbols[i] = 'Z'
+if z == False:
+    arg = False
+else:
+    for i in range(len(symbols)):
+        if symbols[i] == symb[i]:
+            pl +=1
+        else:
+            arg = False
+'''
+if pl == len(A):
+    print(A, 'is a mirrored string')
+else:
+    print(A, 'is  not a mirrored string')
+'''
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+b = False
+for i in range(len(symbols)):
+    if symbols[i]==symb[i]:
+        b = True
+    else:
+        b = False
+if (b == True) and (pl == len(A)):
+    print(A, 'is a mirrored palindrome.')
+elif (b == True) and (pl != len(A)):
+    print(A, 'is a regular palindrome.')
+elif (b == False) and (pl == len(A)):
+    print(A, 'is  a mirrored string.')
+else:
+    print(A, 'is not a palindrome.')
